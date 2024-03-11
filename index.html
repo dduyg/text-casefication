@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Casefication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/63e03a9b9c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1><sup>Text</sup> Case<i style="font-weight: normal;">fication</i></h1>
+        <textarea id="inputText" placeholder="Type or paste your text here to convert case..."></textarea>
+        <div class="buttons convert-btns">
+            <button class="case-btn" onclick="convertText('uppercase')">UPPER CASE</button>
+            <button class="case-btn" onclick="convertText('lowercase')">lower case</button>
+            <button class="case-btn" onclick="convertText('titlecase')">Title Case</button>
+            <button class="case-btn" onclick="convertText('capitalizedcase')">Capitalized Case</button>
+            <button class="case-btn" onclick="convertText('sentencecase')">Sentence case</button>
+            <button class="hyphen-btn" onclick="convertText('spacetohyphen')">Space <i class="fas fa-arrow-right-long fa-xs"></i> Hyphen</button>
+            <button class="hyphen-btn" onclick="convertText('hyphtospace')">Hyphen <i class="fas fa-arrow-right-long fa-xs"></i> Space</button>
+            <button class="underscore-btn" onclick="convertText('spacetounderscore')">Space <i class="fas fa-arrow-right-long fa-xs"></i> Underscore</button>
+            <button class="underscore-btn" onclick="convertText('underscoretospace')">Underscore <i class="fas fa-arrow-right-long fa-xs"></i> Space</button>
+            <button class="underscore-btn" onclick="convertText('camelcase')">camelCase</button>
+            <button class="underscore-btn" onclick="convertText('pascalcase')">PascalCase</button>
+        </div>
+        <div class="buttons">
+            <button class="copy-btn" onclick="copyText()">Copy to Clipboard</button>
+            <button class="clear-btn" onclick="clearText()">Clear</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
