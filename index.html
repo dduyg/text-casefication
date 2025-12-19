@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝚃𝚎𝚡𝚝⌨️𝘊𝘢𝘴𝘦𝘧𝘪𝘤𝘢𝘵𝘪𝘰𝘯</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/63e03a9b9c.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --main: #908479;
+            --back: #282828;
+            --case: #b8bb26;
+            --hyph: #fb4934;
+            --unscore: #FDF7DA;
+        }
+        @font-face {
+            font-family: HK Grotesk;
+            src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027") format("opentype");
+        }
+        @font-face {
+            font-family: HK Grotesk;
+            font-weight: bold;
+            src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437") format("opentype");
+        }
+
+        body {
+            background-color: var(--back);
+            color: var(--main);
+            font-family: "HK Grotesk", sans-serif;
+            margin: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 10px auto;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        sup {
+            font-family: "Lucida Console", Monaco, monospace;
+            font-weight: normal;
+            color: black;
+            background-color: var(--main);
+            border-radius: 10px;
+            padding: 0 2px;
+        }
+
+        textarea {
+            width: 90%;
+            min-height: 160px;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #444;
+            color: #fffeec;
+            border: 2px solid var(--main);
+            border-radius: 5px;
+            resize: none;
+            outline: none;
+        }
+        textarea:focus {
+            border: 2px solid var(--main) !important;
+        }
+
+        .buttons {
+            margin-bottom: 20px;
+        }
+
+        .convert-btns button {
+            padding: 10px 12px;
+            margin: 4px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button colors */
+        .case-btn {
+            color: var(--case);
+            border: 1px solid var(--case);
+            box-shadow: 1px 1px 0 var(--case);
+        }
+        .case-btn:hover {
+            background-color: var(--case);
+        }
+
+        .hyphen-btn {
+            color: var(--hyph);
+            border: 1px solid var(--hyph);
+            box-shadow: 1px 1px 0 var(--hyph);
+        }
+        .hyphen-btn:hover {
+            background-color: var(--hyph);
+        }
+
+        .underscore-btn {
+            color: var(--unscore);
+            border: 1px solid var(--unscore);
+            box-shadow: 1px 1px 0 var(--unscore);
+        }
+        .underscore-btn:hover {
+            background-color: var(--unscore);
+        }
+
+        .convert-btns button:hover {
+            color: var(--back);
+        }
+
+        .convert-btns button:focus {
+            outline: none;
+        }
+
+        .convert-btns button:active {
+            transform: translateY(2px);
+        }
+
+        /* Copy and clear buttons */
+        .copy-btn,
+        .clear-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 2px solid var(--main);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-family: "Lucida Console", Monaco, monospace;
+        }
+
+        .copy-btn,
+        .copy-btn.copied {
+            width: 200px;
+            color: var(--back);
+            background-color: var(--main);
+        }
+
+        .clear-btn {
+            color: var(--main);
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><sup>Text</sup> Case<i style="font-weight: normal;">fication</i></h1>
+
+        <textarea id="inputText" placeholder="Type or paste your text here to convert case..."></textarea>
+
+        <div class="buttons convert-btns">
+            <button class="case-btn" onclick="convertText('uppercase')">UPPER CASE</button>
+            <button class="case-btn" onclick="convertText('lowercase')">lower case</button>
+            <button class="case-btn" onclick="convertText('titlecase')">Title Case</button>
+            <button class="case-btn" onclick="convertText('capitalizedcase')">Capitalized Case</button>
+            <button class="case-btn" onclick="convertText('sentencecase')">Sentence case</button>
+
+            <button class="hyphen-btn" onclick="convertText('spacetohyphen')">Space <i class="fas fa-arrow-right-long fa-xs"></i> Hyphen</button>
+            <button class="hyphen-btn" onclick="convertText('hyphtospace')">Hyphen <i class="fas fa-arrow-right-long fa-xs"></i> Space</button>
+
+            <button class="underscore-btn" onclick="convertText('spacetounderscore')">Space <i class="fas fa-arrow-right-long fa-xs"></i> Underscore</button>
+            <button class="underscore-btn" onclick="convertText('underscoretospace')">Underscore <i class="fas fa-arrow-right-long fa-xs"></i> Space</button>
+            <button class="underscore-btn" onclick="convertText('camelcase')">camelCase</button>
+            <button class="underscore-btn" onclick="convertText('pascalcase')">PascalCase</button>
+        </div>
+
+        <div class="buttons">
+            <button class="copy-btn" onclick="copyText()">Copy to Clipboard</button>
+            <button class="clear-btn" onclick="clearText()">Clear</button>
+        </div>
+    </div>
+
+    <script src="textCasefication.js"></script>
+</body>
+</html>
